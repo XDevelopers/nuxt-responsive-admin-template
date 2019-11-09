@@ -2,8 +2,11 @@
   <div>
     <header class="cd-main-header js-cd-main-header">
       <div class="cd-logo-wrapper">
-        <a href="#0" class="cd-logo"><img src="assets/img/cd-logo.svg" alt="Logo"></a>
+        <nuxt-link to="/dashboard" class="cd-logo"><img src="assets/img/cinq-logo.png" alt="Logo"></nuxt-link>
       </div>
+      <!-- <div class="cd-search js-cd-search">
+        Título da Página // TODO:
+      </div> -->
       <div class="cd-search js-cd-search">
         <form>
           <input class="reset" type="search" placeholder="Search...">
@@ -21,6 +24,7 @@
           </a>
           <ul class="cd-nav__sub-list">
             <li class="cd-nav__sub-item"><a href="#0">My Account</a></li>
+            <li class="cd-nav__sub-item"><nuxt-link to="/logout">Logout</nuxt-link></li>
             <!-- other list items here -->
           </ul>
         </li>
@@ -32,7 +36,7 @@
         <ul class="cd-side__list js-cd-side__list">
           <li class="cd-side__label"><span>Main</span></li>
           <li class="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children">
-            <a href="#0">Overview</a>
+            <nuxt-link to="/about">About</nuxt-link>
             <ul class="cd-side__sub-list">
               <li class="cd-side__sub-item"><a href="#0">All Data</a></li>
               <!-- other list items here -->
@@ -55,6 +59,9 @@
       </div>
       <!-- .cd-content-wrapper -->
     </main>
+    <script src="../assets/js/util.js" type="text/javascript"></script>
+    <script src="../assets/js/menu-aim.js" type="text/javascript"></script>
+    <script src="../assets/js/main.js" type="text/javascript"></script>
   </div>
 </template>
 

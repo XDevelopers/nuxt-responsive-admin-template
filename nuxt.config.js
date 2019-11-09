@@ -12,6 +12,8 @@ export default {
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,700,200' },
+            { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css' },
             { rel: 'stylesheet', href: 'assets/css/style.css' }
         ]
     },
@@ -41,13 +43,17 @@ export default {
         // Doc: https://bootstrap-vue.js.org
         'bootstrap-vue/nuxt',
         // Doc: https://axios.nuxtjs.org/usage
-        '@nuxtjs/axios'
+        '@nuxtjs/axios',
+        '@nuxtjs/auth',
+        '@nuxtjs/moment'
     ],
     /*
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
-    axios: {},
+    axios: {
+        baseURL: 'https://reqres.in/api'
+    },
     /*
      ** Build configuration
      */
@@ -63,5 +69,21 @@ export default {
      */
     generate: {
         dir: "public"
+    },
+
+    auth: {
+        strategies: {
+            local: {
+                endpoints: {
+                    login: { url: '/login?delay=1', method: 'post', propertyName: 'token' },
+                    user: { url: '/users/2', method: 'get', propertyName: '' },
+                    logout: false
+                }
+            }
+        },
+        redirect: {
+            login: '/',
+            logout: '/'
+        }
     }
 }
